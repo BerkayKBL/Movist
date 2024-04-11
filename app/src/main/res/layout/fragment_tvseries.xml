@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical"
+        android:background="@color/main_color">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_series"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:layout_marginVertical="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchTvSerie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/element_search"
+            android:textColor="@color/white"
+            android:padding="5dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:lines="1"/>
+
+        <LinearLayout
+            android:id="@+id/topToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/popularButton"
+                style="@style/ToolbarItem.Active"
+                android:text="@string/popular" />
+            <Button
+                android:id="@+id/topRatedButton"
+                style="@style/ToolbarItem"
+                android:text="@string/top_rated"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/tvseries"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="2"/>
+</LinearLayout>

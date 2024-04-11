@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Movist</string>
+
+    <string name="movies">Movies</string>
+    <string name="tv_series">TV Series</string>
+
+    <string name="movie">Movie(s)</string>
+    <string name="tv_serie">TV Serie(s)</string>
+
+    <string name="celebs">Celebs</string>
+    <string name="bookmark">Bookmark</string>
+
+    <string name="top_rated">Top Rated</string>
+    <string name="popular">Popular</string>
 </resources>
