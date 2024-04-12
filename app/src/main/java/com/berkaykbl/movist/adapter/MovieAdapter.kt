@@ -63,8 +63,8 @@ class MovieAdapter(var context: Context, var arrayList: List<Movie>, var dao: Mo
             bookmark.setOnClickListener {
                 if (hasBookmark) {
                     it.isActivated = false
-                    dao!!.deleteMovie(movieEntity!!)
                     hasBookmark = false
+                    dao!!.deleteMovie(movieJSON.id)
                 } else {
                     it.isActivated = true
                     dao!!.insertMovie(MovieEntity(movieId = movieJSON.id))
@@ -72,6 +72,7 @@ class MovieAdapter(var context: Context, var arrayList: List<Movie>, var dao: Mo
                 }
             }
         }
+
 
         return view
     }

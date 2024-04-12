@@ -48,9 +48,9 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val utils = Utils()
+        movieDao = utils.movieDao()
         getDataFromApi(utils.getMoviePopularURL())
 
-        movieDao = utils.movieDao()
 
         binding.topRatedButton.setOnClickListener {
             if (lastPage == 0) {
@@ -123,11 +123,11 @@ class MoviesFragment : Fragment() {
                         val gson = Gson()
                         moviesList.clear()
                         while (moviesList.size < movies.length()) {
-                            val person = gson.fromJson(
+                            val movie = gson.fromJson(
                                 movies.get(moviesList.size).toString(),
                                 Movie::class.java
                             )
-                            moviesList.add(person)
+                            moviesList.add(movie)
                         }
                         adapter =
                             MovieAdapter(requireContext(), moviesList, movieDao)

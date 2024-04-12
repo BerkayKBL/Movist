@@ -22,8 +22,8 @@ interface MovieDao {
     @Update
     fun updateMovie(movie: MovieEntity)
 
-    @Delete
-    fun deleteMovie(movie: MovieEntity)
+    @Query("DELETE FROM movies WHERE id = :id")
+    fun deleteMovie(id: Int)
 }
 
 
@@ -41,6 +41,9 @@ interface TvSerieDao {
 
     @Update
     fun updateTvserie(tvserie: TvSerieEntity)
+
+    @Query("DELETE FROM tvseries WHERE id = :id")
+    fun deleteTvSerie(id: Int)
 }
 
 @Dao

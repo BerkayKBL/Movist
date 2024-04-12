@@ -8,6 +8,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.berkaykbl.movist.Utils
 import com.berkaykbl.movist.adapter.TVSerieAdapter
+import com.berkaykbl.movist.database.MovieDao
+import com.berkaykbl.movist.database.TvSerieDao
 import com.berkaykbl.movist.databinding.FragmentTvseriesBinding
 import com.berkaykbl.movist.model.TVSerie
 import com.google.gson.Gson
@@ -24,6 +26,7 @@ class TVSeriesFragment : Fragment() {
     private lateinit var binding: FragmentTvseriesBinding
     private var lastPage = 0
     private var tvSeriesList = ArrayList<TVSerie>()
+    private var tvSerieDao : TvSerieDao? = null
     private var adapter: TVSerieAdapter? = null
     private var isSearch = false
     override fun onCreateView(
@@ -39,7 +42,9 @@ class TVSeriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val utils = Utils()
+        tvSerieDao = utils.tvserieDao()
         getDataFromApi(utils.getTvSeriePopularURL())
+
 
         binding.topRatedButton.setOnClickListener {
             if (lastPage == 0) {
@@ -114,14 +119,14 @@ class TVSeriesFragment : Fragment() {
                         val gson = Gson()
                         tvSeriesList.clear()
                         while (tvSeriesList.size < tvseries.length()) {
-                            val person = gson.fromJson(
+                            val tvserie = gson.fromJson(
                                 tvseries.get(tvSeriesList.size).toString(),
                                 TVSerie::class.java
                             )
-                            tvSeriesList.add(person)
+                            tvSeriesList.add(tvserie)
                         }
                         adapter =
-                            TVSerieAdapter(requireContext(), tvSeriesList)
+                            TVSerieAdapter(requireContext(), tvSeriesList, tvSerieDao)
                         binding.tvseries.adapter = adapter
                     }
                 }

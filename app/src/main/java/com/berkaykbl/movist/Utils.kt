@@ -1,6 +1,7 @@
 package com.berkaykbl.movist
 
 import android.content.Context
+import androidx.navigation.NavController
 import androidx.room.Room
 import com.berkaykbl.movist.database.AppDatabase
 import com.berkaykbl.movist.database.MovieDao
@@ -11,6 +12,7 @@ private var db: AppDatabase? = null
 private var movieDao: MovieDao? = null
 private var tvserieDao: TvSerieDao? = null
 private var settingsDao: SettingDao? = null
+private var mainNavController: NavController? = null
 
 
 class Utils {
@@ -32,17 +34,26 @@ class Utils {
     fun getTvSerieSearchURL(page: Int = 1, searchQuery: String) =
         "https://api.themoviedb.org/3/search/tv?query=$searchQuery&include_adult=false&language=en-US&page=$page"
 
+    fun getMovieDetailURL(id: Int) :String = "https://api.themoviedb.org/3/movie/$id?language=en-US"
+    fun getTvSerieDetailURL(id: Int) :String = "https://api.themoviedb.org/3/tv/$id?language=en-US"
+
 
     fun getAPIKey(): String =
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4M2ZkZmI2MTdiMGY5NDYxZDViMDNkNzE2YTg5MGUwMCIsInN1YiI6IjY2MTJlZmU0MjgzZWQ5MDE3YzFkMWE5ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._NSaWCVwOc5tmrBv9PIfTkqAkkdaYQGj3KeXo92-nUc"
 
     fun getDB(): AppDatabase? = db
-    fun setDB(context: Context) =
-        Room.databaseBuilder(context, AppDatabase::class.java, "movist-database")
+    fun setDB(context: Context) {
+        db = Room.databaseBuilder(context, AppDatabase::class.java, "movist-database")
             .allowMainThreadQueries()
             .build()
+    }
 
     fun movieDao() : MovieDao = db!!.movieDao()
     fun tvserieDao() : TvSerieDao = db!!.tvserieDao()
     fun settingDao() : SettingDao = db!!.settingDao()
+
+    fun setNavController(navController: NavController) {
+        mainNavController = navController
+    }
+    fun getNavController(): NavController? = mainNavController
 }

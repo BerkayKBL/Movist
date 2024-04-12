@@ -42,7 +42,45 @@
             android:id="@+id/action_to_Movies"
             app:destination="@id/MoviesFragment" />
         <action
+            android:id="@+id/action_to_BookmarkMovies"
+            app:destination="@id/bookmarkMoviesFragment" />
+        <action
+            android:id="@+id/action_to_BookmarkTvSeries"
+            app:destination="@id/bookmarkTvSeriesFragment" />
+        <action
             android:id="@+id/action_to_TVSeries"
             app:destination="@id/TVSeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkMoviesFragment"
+        android:name="com.berkaykbl.movist.activities.BookmarkMoviesFragment"
+        android:label="BookmarkMoviesFragment"
+        tools:layout="@layout/fragment_bookmark_details">
+
+        <action
+            android:id="@+id/action_to_Movies"
+            app:destination="@id/MoviesFragment" />
+        <action
+            android:id="@+id/action_to_TVSeries"
+            app:destination="@id/TVSeriesFragment" />
+        <action
+            android:id="@+id/action_to_Bookmark"
+            app:destination="@id/bookmarkFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkTvSeriesFragment"
+        android:name="com.berkaykbl.movist.activities.BookmarkTvSeriesFragment"
+        android:label="BookmarkTvSeriesFragment"
+        tools:layout="@layout/fragment_bookmark_details">
+
+        <action
+            android:id="@+id/action_to_Movies"
+            app:destination="@id/MoviesFragment" />
+        <action
+            android:id="@+id/action_to_TVSeries"
+            app:destination="@id/TVSeriesFragment" />
+        <action
+            android:id="@+id/action_to_Bookmark"
+            app:destination="@id/bookmarkFragment" />
     </fragment>
 </navigation>

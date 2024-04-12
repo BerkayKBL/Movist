@@ -12,4 +12,9 @@
 
     <string name="top_rated">Top Rated</string>
     <string name="popular">Popular</string>
+
+    <string name="lorem_ipsum_short">Lorem Ipsum Short Title</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+    <string name="release_date">2020-20-20</string>
+    <string name="playtime">2h 12m</string>
 </resources>

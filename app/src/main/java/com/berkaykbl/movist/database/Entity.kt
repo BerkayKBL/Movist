@@ -5,8 +5,7 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "movies",
-    indices = [Index(value = ["id"], unique = true)])
+@Entity(tableName = "movies")
 data class MovieEntity(
     @PrimaryKey(autoGenerate = true) val uid: Int = 0,
     @ColumnInfo(name = "id")
@@ -14,8 +13,7 @@ data class MovieEntity(
 )
 
 
-@Entity(tableName = "tvseries",
-    indices = [Index(value = ["id"], unique = true)])
+@Entity(tableName = "tvseries")
 data class TvSerieEntity(
     @PrimaryKey(autoGenerate = true) val uid: Int = 0,
     @ColumnInfo(name = "id")
